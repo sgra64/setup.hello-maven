@@ -4,6 +4,15 @@
 [Clone](https://github.com/sgra64/setup.hello-maven)
 this project and perform the steps described below.
 
+References:
+
+- Tim van Baarsen, *"Maven Cheat Sheet"*,
+    [link](https://medium.com/@TimvanBaarsen/maven-cheat-sheet-45942d8c0b86).
+
+- Digital Ocean, *"20+ Maven Commands and Options"*,
+    [link](https://www.digitalocean.com/community/tutorials/maven-commands-options-cheat-sheet).
+
+
 
 &nbsp;
 

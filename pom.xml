@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- 
+		Project GAV with groupId (G), artifactId (A) and version (V).
+	-->
+	<groupId>de.freerider</groupId>
+	<artifactId>hello-maven</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<!-- 
+		The properties section defines variables used in pom.xml. Variables are
+		referenced by: ${var.name}
+	-->
+	<properties>
+		<jdk.version>17</jdk.version>
+		<!-- <maven.compiler.source>1.8</maven.compiler.source> -->
+		<!-- <maven.compiler.target>1.8</maven.compiler.target> -->
+		<maven.compiler.plugin.version>3.10.1</maven.compiler.plugin.version>
+		<maven.jar.plugin.version>3.3.0</maven.jar.plugin.version>
+
+		<main.class>de.freerider.HelloMaven</main.class>
+
+		<skipTests>false</skipTests>
+		<maven.surefire.plugin.version>3.0.0-M6</maven.surefire.plugin.version>
+		<junit.jupiter.version>5.9.1</junit.jupiter.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
+
+	<!-- 
+		The dependencies section defines project dependenencies, which are external
+		packages used in source code (imports). Maven downloads packages from the
+		mvnrepository into the local $(M2_HOME) cache and adds dependencies to CLASSPATH.
+	-->
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>${junit.jupiter.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<!-- 
+		The build section defines plugins used for various stages of the maven build-process.
+		Plugins are also obtained from mvnrepository (as .jars) and used by maven itself. 
+	-->
+	<build>
+		<!-- <testSourceDirectory>test</testSourceDirectory> -->
+		<plugins>
+
+			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler.plugin.version}</version>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+
+			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jar-plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>${maven.jar.plugin.version}</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>${main.class}</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+
+			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven.surefire.plugin.version}</version>
+			</plugin>
+
+		</plugins>
+	</build>
+
+</project>
